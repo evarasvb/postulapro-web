@@ -1,21 +1,81 @@
 # PostulaPro Web
 
-Generador de propuestas automáticas para licitaciones en Mercado Público de Chile (Convenio Marco de Aseo e Higiene).
+Generador automático de propuestas de postulación para licitaciones públicas en Chile, con foco en el **Convenio Marco de Aseo e Higiene (ID 2239-8-LR25)**.
 
-## 🧠 ¿Qué hace?
+---
 
-Esta app te permite generar automáticamente propuestas técnicas y económicas basadas en bases reales de licitación, como la del Convenio Marco ID 2239-8-LR25.
+## 🧠 Características
 
-Incluye:
-- Cumplimiento de requisitos legales y técnicos (INAPI, ISP, Registro Proveedores)
-- Carta de presentación automatizada
-- Análisis estratégico para puntaje óptimo
-- Formato ideal para licitaciones en Mercado Público
+* Verificación de proveedor por RUT contra padrón oficial
+* Generación automática de:
+
+  * Carta de presentación
+  * Oferta técnica
+  * Oferta económica
+  * Análisis estratégico
+  * Checklist de cumplimiento
+* Exportación a Word con anexo numerado
+* Validaciones de campos y precios
+* Envió de propuesta por correo electrónico
+* Recordatorio automático de fechas clave
+
+---
+
+## 📅 Fechas importantes
+
+> 🔔 Cierre postulaciones: **viernes 7 de junio de 2025 a las 15:00 hrs**
+
+---
 
 ## 🚀 Cómo usar
 
-### 1. Clona este repositorio
 ```bash
-git clone https://github.com/<tu_usuario>/postulapro-web.git
+# 1. Clona el repo
+git clone https://github.com/evarasvb/postulapro-web.git
 cd postulapro-web
+
+# 2. Instala dependencias
+pip install -r requirements.txt
+
+# 3. Ejecuta la app
+streamlit run app.py
+```
+
+---
+
+## 📂 Archivos clave
+
+| Archivo                                     | Descripción                                   |
+| ------------------------------------------- | --------------------------------------------- |
+| `app.py`                                    | Aplicación principal con Streamlit            |
+| `requirements.txt`                          | Dependencias (streamlit, pandas, python-docx) |
+| `README.md`                                 | Esta documentación                            |
+| `ListadoProveedoresVigentes-02-06-2025.pdf` | Archivo para validación de RUT                |
+
+---
+
+## 🚫 Limitaciones
+
+* No envía ofertas automáticas a Mercado Público
+* No valida los productos por ficha técnica (en desarrollo)
+
+---
+
+## 📄 Captura de pantalla
+
+> *(Puedes subir una imagen de tu app funcionando en Streamlit y colocar aquí un enlace o markdown)*
+
+---
+
+## 🌟 Créditos
+
+Hecho con ❤️ por [evarasvb](https://github.com/evarasvb)
+
+---
+
+## 📢 Licencia
+
+MIT License
+
+---
 
