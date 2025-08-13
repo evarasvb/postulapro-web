@@ -1,0 +1,13 @@
+[whx]
+user = "tu_correo@empresa.cl"
+pass = "TU_PASSWORD"
+
+[sheets]
+sheet_id = "1jDDfbLxA4EVv5v_DhtidKg5ZGt35ZvY7uZ1x2fycDM0"
+tab_name = "Hoja 1"
+
+[data]
+price_list_path = "data/lista_precios.csv"
+
+[files]
+tech_sheet_dir = "fichas_tecnicas"
