@@ -1,0 +1,33 @@
+name: Wherex Bot
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  run-wherex-bot:
+    runs-on: ubuntu-latest
+    env:
+      WHEREX_USER: ${{ secrets.WHEREX_USER }}
+      WHEREX_PASS: ${{ secrets.WHEREX_PASS }}
+      GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+      PRICE_LIST_FILE: data/lista_precios.csv
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r agents/wherex/requirements.txt
+          playwright install chromium
+      - name: Setup Google credentials
+        env:
+          GCP_SERVICE_ACCOUNT_JSON: ${{ secrets.GCP_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$GCP_SERVICE_ACCOUNT_JSON" > credentials.json
+      - name: Run Wherex Bot
+        run: python agents/wherex/wherex_bot.py
